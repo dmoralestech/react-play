@@ -13,10 +13,12 @@
     <script>
         var Component = React.createClass({
             render: function() {
-                return React.DOM.span(null, "I'm so custom");
+                return React.DOM.span(null, "My name is: " + this.props.firstName + " " + this.props.lastName);
             }
         });
-        ReactDOM.render(React.createElement(Component), document.getElementById("app"));
+
+       // var ComponentFactory = React.componentFactory(Component);
+        ReactDOM.render(React.createElement(Component, {firstName: "Darwin", lastName: "Morales"}), document.getElementById("app"));
     </script>
 </body>
 </html>
