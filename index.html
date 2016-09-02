@@ -5,20 +5,27 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <div id="app">
+<div id="app">
     <!-- my app renders here -->
-    </div>
-    <script src="react/build/react.js"></script>
-    <script src="react/build/react-dom.js"></script>
-    <script>
-        var Component = React.createClass({
-            render: function() {
-                return React.DOM.span(null, "My name is: " + this.props.firstName + " " + this.props.lastName);
-            }
-        });
+</div>
+<script src="react/build/react.js"></script>
+<script src="react/build/react-dom.js"></script>
+<script>
+    var Component = React.createClass({
+        propTypes: {
+          firstName: React.PropTypes.string.isRequired,
+          lastName: React.PropTypes.string.isRequired
+        },
+        render: function () {
+            return React.DOM.span(null, "My name is: " + this.props.firstName + " " + this.props.lastName);
+        }
+    });
 
-       // var ComponentFactory = React.componentFactory(Component);
-        ReactDOM.render(React.createElement(Component, {firstName: "Darwin", lastName: "Morales"}), document.getElementById("app"));
-    </script>
+    // var ComponentFactory = React.componentFactory(Component);
+    ReactDOM.render(React.createElement(Component, {
+        firstName: "Darwin",
+        lastName: "Morales"
+    }), document.getElementById("app"));
+</script>
 </body>
 </html>
