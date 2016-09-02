@@ -23,13 +23,13 @@
 
     var TextAreaCounter = React.createClass({
         propTypes: {
-            text: React.PropTypes.string.isRequired,
-            name: React.PropTypes.string.isRequired
+            defaultTextValue: React.PropTypes.string,
+            defaultNameValue: React.PropTypes.string
         },
         getInitialState: function () {
             return {
-                text: this.props.text,
-                name: this.props.name
+                text: this.props.defaultTextValue,
+                name: this.props.defaultNameValue
             };
         },
         _textChange: function (ev) {
@@ -56,8 +56,8 @@
 
     // var ComponentFactory = React.componentFactory(Component);
     ReactDOM.render(React.createElement(TextAreaCounter, {
-        text: "Darwin",
-        name: "Charles"
+        defaultTextValue: "Darwin",
+        defaultNameValue: "Charles"
     }), document.getElementById("app"));
 
 
