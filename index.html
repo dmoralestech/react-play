@@ -13,19 +13,35 @@
 <script>
     var Component = React.createClass({
         propTypes: {
-          firstName: React.PropTypes.string.isRequired,
-          lastName: React.PropTypes.string.isRequired
+            firstName: React.PropTypes.string.isRequired,
+            lastName: React.PropTypes.string.isRequired
         },
         render: function () {
             return React.DOM.span(null, "My name is: " + this.props.firstName + " " + this.props.lastName);
         }
     });
 
+    var TextAreaCounter = React.createClass({
+        propTypes: {
+            text: React.PropTypes.string.isRequired
+        },
+        render: function () {
+            return React.DOM.div(null,
+                    React.DOM.textarea({defaultValue: this.props.text}),
+                    React.DOM.h3(null, this.props.text.length));
+        }
+    });
+
     // var ComponentFactory = React.componentFactory(Component);
-    ReactDOM.render(React.createElement(Component, {
-        firstName: "Darwin",
-        lastName: "Morales"
+    ReactDOM.render(React.createElement(TextAreaCounter, {
+        text: "Darwin"
     }), document.getElementById("app"));
+
+
+//    ReactDOM.render(React.createElement(Component, {
+//        firstName: "Darwin",
+//        lastName: "Morales"
+//    }), document.getElementById("app"));
 </script>
 </body>
 </html>
