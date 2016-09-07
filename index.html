@@ -18,7 +18,8 @@
         },
         render: function () {
             return React.DOM.span(null, "My name is: " + this.props.firstName + " " + this.props.lastName,
-                    React.DOM.h3(null, ' hi ')
+                    React.DOM.h3(null, ' hi '),
+                    React.DOM.h3(null, ' test ')
             );
         }
     });
@@ -76,16 +77,16 @@
     });
 
     // var ComponentFactory = React.componentFactory(Component);
-    ReactDOM.render(React.createElement(TextAreaCounter, {
-        defaultTextValue: "Darwin",
-        defaultNameValue: "Charles"
-    }), document.getElementById("app"));
+//    ReactDOM.render(React.createElement(TextAreaCounter, {
+//        defaultTextValue: "Darwin",
+//        defaultNameValue: "Charles"
+//    }), document.getElementById("app"));
 
 
-    //    ReactDOM.render(React.createElement(Component, {
-    //        firstName: "Darwin",
-    //        lastName: "Morales"
-    //    }), document.getElementById("app"));
+        ReactDOM.render(React.createElement(Component, {
+            firstName: "Darwin",
+            lastName: "Morales"
+        }), document.getElementById("app"));
 </script>
 </body>
 </html>
