@@ -11,6 +11,7 @@ var app = app || {};
                 <div>
                     <p>Hello world</p>
                     <TodoApp3 />
+                    <TodoApp4 />
                 </div>
             );
         }
@@ -26,6 +27,16 @@ var app = app || {};
         }
     });
 
+    var TodoApp4 = app.components.TodoApp = React.createClass({
+        render: function () {
+            return (
+                <div>
+                    <p>Hello world 4</p>
+                </div>
+            );
+        }
+    });
+    
     app.init = function() {
         var TodoApp = TodoApp2;
         React.renderComponent(
