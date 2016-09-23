@@ -87,6 +87,41 @@
 //            firstName: "Darwin",
 //            lastName: "Morales"
 //        }), document.getElementById("app"));
+
+    dom( 'div', { className: 'our-app' },
+            dom( 'span', null,
+                    'Hello ',
+                    dom( 'em', null, 'World!' )
+            )
+    )
+
+    function dom( tag, attrs /*, children */ ) {
+        if( typeof( tag ) == 'function' ) {
+            // allows magic like <MyApp someProp='wow!' />
+            attrs = attrs || {}
+            attrs.children = children
+            return tag( attrs )
+        }
+        else {
+            var children = [].concat.apply(
+                    [], Array.prototype.slice.call(arguments).slice(2)
+            )
+
+            if( children.length > 1 ) {
+                // if we have multiple children we need to convert
+                // any text-only nodes into spans for tracking purposes
+                for( var i in children ) {
+                    var child = children[i]
+                    if( child && typeof(child) != 'object' ) {
+                        children[i] = dom( 'span', null, child.toString() )
+                    }
+                }
+            }
+
+            return { tag: tag, attrs: attrs, children: children }
+        }
+    }
+
 </script>
 </body>
 </html>
