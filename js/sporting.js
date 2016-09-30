@@ -19,18 +19,18 @@ var AwesomeTable = React.createClass({
     render: function() {
         return (
             <div>
-            <SearchBar
-        filterText={this.state.filterText}
-        inStockOnly={this.state.inStockOnly}
-        onUserInput={this.handleUserInput}
-        />
-
-        <ProductTable
-        products={this.props.products}
-        filterText={this.state.filterText}
-        inStockOnly={this.state.inStockOnly}
-        />
-        </div>
+                <SearchBar
+                    filterText={this.state.filterText}
+                    inStockOnly={this.state.inStockOnly}
+                    onUserInput={this.handleUserInput}
+                />
+                    
+                <ProductTable
+                    products={this.props.products}
+                    filterText={this.state.filterText}
+                    inStockOnly={this.state.inStockOnly}
+                />
+            </div>
         )
     }
 });
@@ -45,26 +45,27 @@ var SearchBar = React.createClass({
 
         return (
             <form>
-            <input type="text"
-        className="textInput"
-        ref="filterTextInput"
-        placeholder="Search..."
-        value={this.props.filterText}
-        onChange={this.handleChange} />
-
-        <p className="screen">{screenText}</p>
-
-            <p>
-            <input type="checkbox"
-        id="inStockOnlyInput"
-        ref="inStockOnlyInput"
-        checked={this.props.inStockOnly}
-        onChange={this.handleChange} />
-        {' '}
-        <label htmlFor="inStockOnlyInput">Only show products in stock.</label>
-        </p>
-        </form>
-        )
+                <input type="text"
+                    className="textInput"
+                    ref="filterTextInput"
+                    placeholder="Search..."
+                    value={this.props.filterText}
+                    onChange={this.handleChange} />
+    
+                <p className="screen">{screenText}</p>
+    
+                <p>
+                    <input type="checkbox"
+                        id="inStockOnlyInput"
+                        ref="inStockOnlyInput"
+                        checked={this.props.inStockOnly}
+                        onChange={this.handleChange} />
+                    
+                {' '}
+                    <label htmlFor="inStockOnlyInput">Only show products in stock.</label>
+                </p>
+            </form>
+        );
     },
 
     handleChange: function() {
