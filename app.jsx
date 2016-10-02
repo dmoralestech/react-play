@@ -9,8 +9,8 @@ var app = app || {};
         render: function () {
             return (
                 <div>
-                    <p>Hello world</p>
-                    <TodoApp3 />
+                    <p>value: {this.props.value}</p>
+                    <TodoApp3 name="buy milk" />
                     <TodoApp4 />
                 </div>
             );
@@ -22,6 +22,7 @@ var app = app || {};
             return (
                 <div>
                     <p>Hello world 2</p>
+                    <p>{this.props.name}</p>
                 </div>
             );
         }
@@ -40,7 +41,7 @@ var app = app || {};
     app.init = function() {
         var TodoApp = TodoApp2;
         React.renderComponent(
-            <TodoApp2 />,
+            <TodoApp2 value="todo 1"/>,
             document.getElementById('app')
         );
     };

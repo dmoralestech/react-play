@@ -26,7 +26,8 @@
         render: function () {
             return React.DOM.span(null, "My name is: " + this.props.firstName + " " + this.props.lastName,
                     React.DOM.h3(null, ' hi '),
-                    React.DOM.h3(null, ' test ')
+                    React.DOM.h3(null, ' test '),
+                    React.DOM.h3(null, 'address: ' +  this.props.address)
             );
         }
     });
@@ -96,7 +97,8 @@
 //
     ReactDOM.render(React.createElement(Component, {
         firstName: "Darwin",
-        lastName: "Morales"
+        lastName: "Morales",
+        address: "home"
     }), document.getElementById("app"));
 
 //    ReactDOM.render(React.createElement(ComponentFactory, {
