@@ -5,9 +5,9 @@
     <meta charset="utf-8">
 </head>
 <body>
-<div id="app">
-    <!-- my app renders here -->
-</div>
+    <div id="app">
+        <!-- my app renders here -->
+    </div>
 <script src="react/build/react.js"></script>
 <script src="react/build/react-dom.js"></script>
 <script>
@@ -84,9 +84,9 @@
     var TextAreaCounter2 = createTextAreaCounter();
     var TextAreaCounter3 = createTextAreaCounter();
 
-        ReactDOM.render(React.createElement(TextAreaCounter2, {
-            defaultTextValue: "Darwin"
-        }), document.getElementById("app"));
+//        ReactDOM.render(React.createElement(TextAreaCounter, {
+//            defaultTextValue: "Darwin"
+//        }), document.getElementById("app"));
 
 
 //            ReactDOM.render(React.createElement(Component, {
@@ -94,10 +94,10 @@
 //                lastName: "Morales"
 //            }), document.getElementById("app"));
 //
-//    ReactDOM.render(React.createElement(Component, {
-//        firstName: "Darwin",
-//        lastName: "Morales"
-//    }), document.getElementById("app"));
+    ReactDOM.render(React.createElement(Component, {
+        firstName: "Darwin",
+        lastName: "Morales"
+    }), document.getElementById("app"));
 
 //    ReactDOM.render(React.createElement(ComponentFactory, {
 //        name: "Darwin"

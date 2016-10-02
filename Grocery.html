@@ -13,31 +13,33 @@
 <script src="react/build/react-dom.js"></script>
 <script>
 
-    // Parent Component
-    class GroceryList extends Component {
-        render() {
+
+    var MyGroceryList = React.createClass({
+        render: function () {
             return (
                     <ul>
-                        <ListItem quantity="1">Bread</ListItem>
-                        <ListItem quantity="6">Eggs</ListItem>
-                        <ListItem quantity="2">Milk</ListItem>
+                        <MyGroceryListItem quantity="1">Bread</MyGroceryListItem>
+                        <MyGroceryListItem quantity="6">Eggs</MyGroceryListItem>
+                        <MyGroceryListItem quantity="2">Milk</MyGroceryListItem>
                     </ul>
             );
         }
-    }
+    });
 
-    // Child Component
-    class ListItem extends Component {
-        render() {
+    var MyGroceryListItem = React.createClass({
+        render: function () {
             return (
                     <li>
                         {this.props.quantity}× {this.props.children}
                     </li>
             );
         }
-    }
+    });
 
-    render(<GroceryList />, document.getElementById('root'));
+    ReactDOM.render(React.createElement(MyGroceryList, {
+    }), document.getElementById("root"));
+
+
 </script>
 </body>
 </html>
