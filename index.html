@@ -5,9 +5,9 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <div id="app">
-        <!-- my app renders here -->
-    </div>
+<div id="app">
+    <!-- my app renders here -->
+</div>
 <script src="react/build/react.js"></script>
 <script src="react/build/react-dom.js"></script>
 <script>
@@ -27,83 +27,90 @@
             return React.DOM.span(null, "My name is: " + this.props.firstName + " " + this.props.lastName,
                     React.DOM.h3(null, ' hi '),
                     React.DOM.h3(null, ' test '),
-                    React.DOM.h3(null, 'address: ' +  this.props.address)
+                    React.DOM.h3(null, 'address: ' + this.props.address),
+                    React.DOM.h3(null, 'address: ' + this.props.children)
             );
         }
     });
 
 
-
-    function createTextAreaCounter() {
-        return React.createClass({
-            _log: function (methodName, args) {
-                console.log(methodName, args);
-            },
-            componentWillUpdate: function () {
-                this._log('componentWillUpdate', arguments);
-            },
-            componentDidUpdate: function () {
-                this._log('componentDidUpdate', arguments);
-            },
-            componentWillMount: function () {
-                this._log('componentWillMount', arguments);
-            },
-            componentDidMount: function () {
-                this._log('componentDidMount', arguments);
-            },
-            componentWillUnmount: function () {
-                this._log('componentWillUnmount', arguments);
-            },
-            propTypes: {
-                defaultTextValue: React.PropTypes.string
-            },
-            getInitialState: function () {
-                return {
-                    text: this.props.defaultTextValue
-                };
-            },
-            _textChange: function (ev) {
-                this.setState({
-                    text: ev.target.value
-                });
-            },
-            render: function () {
-                return
-                    React.DOM.div(null,
+    var TextAreaCounter = React.createClass({
+        _log: function (methodName, args) {
+            console.log(methodName, args);
+        },
+        componentWillUpdate: function () {
+            this._log('componentWillUpdate', arguments);
+        },
+        componentDidUpdate: function () {
+            this._log('componentDidUpdate', arguments);
+        },
+        componentWillMount: function () {
+            this._log('componentWillMount', arguments);
+        },
+        componentDidMount: function () {
+            this._log('componentDidMount', arguments);
+        },
+        componentWillUnmount: function () {
+            this._log('componentWillUnmount', arguments);
+        },
+        propTypes: {
+            defaultTextValue: React.PropTypes.string
+        },
+        getInitialState: function () {
+            return {
+                textValue: this.props.defaultTextValue
+            };
+        },
+        _textChange: function (ev) {
+            this.setState({
+                textValue: ev.target.value
+            });
+        },
+        render: function () {
+                return React.DOM.div(null,
                         React.DOM.textarea({
-                            value: this.state.text,
+                            value: this.state.textValue,
                             onChange: this._textChange
                         }),
-                        React.DOM.h3(null, this.state.text.length)
+                        React.DOM.h3(null, this.state.textValue.length),
+                        React.DOM.h3(null, this.state.textValue)
                 );
-            }
-        });
-    }
-//     var ComponentFactory = React.componentFactory(Component);
+        }
+    });
+    //     var ComponentFactory = React.componentFactory(Component);
 
-    var TextAreaCounter = createTextAreaCounter();
-    var TextAreaCounter2 = createTextAreaCounter();
-    var TextAreaCounter3 = createTextAreaCounter();
+    /*
+     var MyGroceryListItem = React.createClass({
+     render: function () {
+            return (
+                 <li>
+                    {this.props.quantity}× {this.props.children}
+                </li>
+            );
+        }
+     });
+     */
+    //    var TextAreaCounter2 = createTextAreaCounter();
+    //    var TextAreaCounter3 = createTextAreaCounter();
 
-//        ReactDOM.render(React.createElement(TextAreaCounter, {
-//            defaultTextValue: "Darwin"
-//        }), document.getElementById("app"));
-
-
-//            ReactDOM.render(React.createElement(Component, {
-//                firstName: "Darwin",
-//                lastName: "Morales"
-//            }), document.getElementById("app"));
-//
-    ReactDOM.render(React.createElement(Component, {
-        firstName: "Darwin",
-        lastName: "Morales",
-        address: "home"
+    ReactDOM.render(React.createElement(TextAreaCounter, {
+        defaultTextValue: "Darwin"
     }), document.getElementById("app"));
 
-//    ReactDOM.render(React.createElement(ComponentFactory, {
-//        name: "Darwin"
-//    }), document.getElementById("app"));
+    //            ReactDOM.render(React.createElement(Component, {
+    //                firstName: "Darwin",
+    //                lastName: "Morales"
+    //            }), document.getElementById("app"));
+    //
+    //    ReactDOM.render(React.createElement(Component, {
+    //        firstName: "Darwin",
+    //        lastName: "Morales",
+    //        address: "home"
+    //    }), document.getElementById("app"));
+
+    //    ReactDOM.render(React.createElement(ComponentFactory, {
+    //        name: "Darwin"
+    //    }), document.getElementById("app"));
 
 </script>
 </body>
